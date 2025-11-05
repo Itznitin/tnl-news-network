@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --accent: #ff3b30; --muted: #6b7280; --bg: #ffffff; --card: #ffffff; --text: #0f172a; }
+.dark { --bg: #0b1220; --card: #0f172a; --text: #e6eef8; }
+
+html { background: var(--bg); color: var(--text); }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+.card-shadow { box-shadow: 0 10px 30px rgba(2,6,23,0.08); border-radius: 12px; }
+.btn-smooth { transition: transform .16s ease, box-shadow .16s ease; }
+.btn-smooth:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(2,6,23,0.08); }
+.card-hover { transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s; }
+.card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(2,6,23,0.12); }
+
+.hero-gradient { background: linear-gradient(90deg, rgba(255,59,48,0.06), rgba(255,155,155,0.02)); border-radius: 14px; }
+.img-hover { transition: transform .45s cubic-bezier(.2,.9,.2,1); }
+.img-hover:hover { transform: scale(1.04) translateY(-4px); }
+
+@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+.skeleton { background: linear-gradient(90deg, #f3f4f6 25%, #e6eefc 50%, #f3f4f6 75%); background-size: 800px 100%; animation: shimmer 1.4s linear infinite; }
+
+.nav-underline { position: relative; }
+.nav-underline::after { content: ''; position: absolute; bottom: -6px; left: 0; height: 3px; width: 0; background: linear-gradient(90deg,var(--accent),#ff7b7b); border-radius: 4px; transition: width .22s; }
+.nav-underline:hover::after { width: 100%; }
+
+.kicker { color: var(--accent); font-weight: 700; font-size: 0.85rem; letter-spacing: .02em; }
+
+/* improved dropdown smoothness */
+.dropdown-panel {
+  transition: opacity .18s cubic-bezier(.2,.9,.2,1), transform .18s cubic-bezier(.2,.9,.2,1);
+  transform-origin: top left;
+  will-change: opacity, transform;
+}
+
+/* nicer logo circle */
+.logo-ring {
+  padding: 6px;
+  background: linear-gradient(135deg, rgba(255,59,48,0.12), rgba(0,0,0,0.02));
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.08);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* category card */
+.cat-card { border-radius: 12px; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4)); }
+.dark .cat-card { background: linear-gradient(180deg, rgba(11,18,32,0.55), rgba(11,18,32,0.48)); }
+
+/* social stat boxes */
+.stat-box { border-radius: 10px; padding: 14px; border: 1px solid rgba(15,23,42,0.04); background: var(--card); }
