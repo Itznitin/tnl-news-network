@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 
+export const dynamic = 'force-dynamic'; // 👈 prevents static rendering
+
 export async function GET(req: Request) {
   try {
     const url = new URL(req.url);
@@ -15,14 +17,8 @@ export async function GET(req: Request) {
     }
 
     const response = await axios.get('https://newsapi.org/v2/top-headlines', {
-      params: {
-        category,
-        pageSize: 20,
-        country: 'us',
-      },
-      headers: {
-        'X-Api-Key': key,
-      },
+      params: { category, pageSize: 20, country: 'us' },
+      headers: { 'X-Api-Key': key },
     });
 
     const items = (response.data.articles || []).map((a: any) => ({
