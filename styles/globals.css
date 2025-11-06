@@ -1,0 +1,5 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root{--accent:#7c3aed}
+[data-theme='dark']{ --bg: #0b1220; }
+body{background:linear-gradient(180deg,#020617,#071022); }
+.article-card img{transition:transform .3s ease} .article-card:hover img{transform:scale(1.03)}
